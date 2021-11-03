@@ -5,9 +5,9 @@
  *            \\     //                   https://vesvault.com https://ves.host
  *             \\   //
  *     ___      \\_//
- *    /   \     /   \         VESlocker:        Hardware-level PIN Security API
+ *    /   \     /   \         VESlocker:        Hardware-grade PIN Security API
  *    \__ /     \ __/
- *       \\     //            https://veslocker.com
+ *       \\     //                                        https://veslocker.com
  *        \\   //
  *         \\_//
  *         /   \
