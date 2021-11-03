@@ -44,7 +44,7 @@ VESlocker.prototype.getKey = function(id, seed, pin, url) {
     b.set(new Uint8Array(p), s.byteLength);
     return crypto.subtle.digest("SHA-256", b).then(function(hash) {
 	var frm = "id=" + escape(id) + "&challenge=" + escape(VESlocker.ByteArrayToB64(hash));
-	return new Promise(function(resolve,reject) {
+	return new Promise(function(resolve, reject) {
 	    var xhr = new XMLHttpRequest();
 	    xhr.open("POST", (url ? url : self.apiUrl));
 	    xhr.onreadystatechange = function() {
@@ -62,7 +62,7 @@ VESlocker.prototype.getKey = function(id, seed, pin, url) {
 				var rf = xhr.getResponseHeader("Refresh");
 				if (rf) {
 				    var secs = Number(rf.split(';')[0]);
-				    if (!isNaN(secs)) return reject({code: -1, name: "Retry", retry: secs});
+				    if (!isNaN(secs)) return reject({code: -1, name: "Retry", retry: secs, message: 'Retry in ' + secs + ' sec'});
 				}
 			    default:
 				return reject({code: xhr.status, name: "HttpError", message: xhr.response});
